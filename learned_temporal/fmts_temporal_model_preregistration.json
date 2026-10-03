@@ -1,0 +1,51 @@
+{
+  "created_before_new_training_outcomes": true,
+  "date": "2026-09-15",
+  "stage": "fmts_learned_temporal_coverage_v1",
+  "question": "Can a learned temporal forecaster predict unseen coupled dynamical systems like continuous Bayes when its literal finite training library does not resolve the context posterior?",
+  "system_family": {
+    "state_dimension": 8,
+    "dynamics": "x_{t+1}=B diag(theta) B^T x_t + epsilon_t",
+    "fixed_basis": "One frozen orthogonal B shared by training and evaluation, generated before training outcomes",
+    "task_prior": "theta_j iid Uniform[-0.9,0.9] for j=1,...,8",
+    "process_noise": "epsilon_t iid N(0,0.1^2 I_8)",
+    "initial_state": "x_0 iid N(0,I_8)",
+    "sequence": "17 states, yielding 16 one-step forecasts",
+    "stability": "Every system is stable because max_j |theta_j| <= 0.9"
+  },
+  "training": {
+    "library_sizes": [256, 4096],
+    "nesting": "The M=256 library is the literal prefix of the frozen M=4096 library",
+    "architecture": "Eight-layer, width-128, two-head causal Transformer with MLP width 512; state-token input and vector one-step output",
+    "loss": "Mean squared one-step prediction error over all 16 positions",
+    "optimizer": "Adam, batch 256, peak learning rate 0.001, linear warmup through 100000 steps and decay through the 200000-step endpoint",
+    "seeds": 1,
+    "endpoint_step": 200000,
+    "checkpoint_schedule": "Resumable state every 5000 steps; evaluation at 0,1000,5000,10000, every 25000, and 200000"
+  },
+  "evaluation": {
+    "unseen_systems": 1024,
+    "prefixes_k": [3, 7, 11, 15],
+    "shared_prompt_bank": true,
+    "continuous_bayes": "Exact factorized posterior quadrature in the fixed modal basis",
+    "finite_library_bayes": "Exact likelihood weighting over every task in the literal training library",
+    "coverage": "N2(C)=E_P[L_C^2]/E_P[L_C]^2 from the same quadrature; G=log2 N2-log2 M",
+    "primary_competence_gate": "Transformer/continuous-Bayes noisy next-state risk ratio is strictly below 1.2 at all four prefixes",
+    "morphology": "S=(Delta_D-Delta_C)/(Delta_D+Delta_C), comparing squared vector prediction distances to finite-library and continuous Bayes",
+    "coverage_certificate": "At k=15, the paired-prompt 95% lower bound for S is positive and the 95% lower bound for mean G exceeds 3 bits",
+    "bootstrap_replicates": 2000,
+    "quadrature_audit": "Compare 96-node and 128-node one-dimensional Gauss-Legendre rules on a fixed prompt subset before accepting the result"
+  },
+  "frozen_outcomes": {
+    "temporal_generalization_beyond_retrieval": "M=4096 passes competence and the coverage certificate at k=15. Report direct learned-temporal evidence against literal finite-library Bayesian retrieval.",
+    "library_resolved_or_no_certificate": "M=4096 passes competence but the k=15 coverage certificate fails. Report a competent temporal forecaster without claiming beyond-library support.",
+    "temporal_training_failure": "M=4096 fails competence. Do not interpret S mechanistically; report that the learned temporal extension did not validate the diagnostic.",
+    "transition_evidence": "If M=256 fails while M=4096 passes, report a sampled diversity transition; otherwise report the two conditions without inventing a threshold."
+  },
+  "claim_boundary": "The experiment rules out literal Bayesian retrieval over the actual finite system library as a predictive account. It does not identify the Transformer's internal algorithm or rule out every colloquial form of memorization.",
+  "limits": [
+    "The system is a synthetic stable linear dynamical family with a shared modal basis.",
+    "One training seed per library size is an architecture-level demonstration, not a population estimate.",
+    "The M=256 condition is descriptive unless its frozen endpoint differs from M=4096 under the stated gates."
+  ]
+}

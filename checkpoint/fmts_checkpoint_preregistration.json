@@ -1,0 +1,95 @@
+{
+  "created_before_outcomes": true,
+  "scope": "Local-only audit of four interrupted published-regime checkpoints; no training, upload, cloud execution, or external storage.",
+  "design_amendment": {
+    "date": "2026-09-14",
+    "status": "pre-interpretation correction before corrected outcomes",
+    "provenance": "The initial implementation incorrectly indexed fresh tasks from each finite training-library prefix. Its outputs are retained only as an explicitly labeled in-library control and are not used for unseen-task competence, coverage, or morphology claims.",
+    "correction": "The corrected audit draws one shared fresh task bank directly from independent Gaussian vectors w~N(0,I8), with no library indexing, and reuses the identical x/tasks/noisy labels for every checkpoint and observed-label prefix."
+  },
+  "conditions": [
+    {"name": "M256", "M": 256, "checkpoint_step": 300000, "archive": "screen-M256-step300000.tar.gz"},
+    {"name": "M4096", "M": 4096, "checkpoint_step": 290000, "archive": "screen-M4096-step290000.tar.gz"},
+    {"name": "M8192", "M": 8192, "checkpoint_step": 280000, "archive": "screen-M8192-step280000.tar.gz"},
+    {"name": "M16384", "M": 16384, "checkpoint_step": 280000, "archive": "screen-M16384-step280000.tar.gz"}
+  ],
+  "snapshot_verification": {
+    "required_manifest": "snapshot_manifest.json",
+    "verify_every_manifest_entry_sha256": true,
+    "require_identity_step_and_M": true,
+    "extract": "resume_0.pt model mapping only",
+    "exclude": ["optimizer", "generator_state", "RNG", "old prompt bank", "trajectory predictions"],
+    "required_source_hashes": {
+      "model_source_sha256": "646da89549fc7b80bb00ccd3c390b5a35003302d24a9bec527de745df292c94b",
+      "spec_sha256": "c6ee87a7c3533053b4e19e0d93097834db4087f462d8e5250f673d8f72cbf51a",
+      "master_library_sha256": "5899d3051b5d5da0fb6d1058c04ead8a12a7f46782c82315cfbf12d8d8d7bb35"
+    }
+  },
+  "model": {
+    "implementation": "PublishedRegressor from positive_control_training.py",
+    "dimension": 8,
+    "points": 16,
+    "alternating_x_y_tokens": true,
+    "x_token_positions": 16,
+    "layers": 8,
+    "width": 128,
+    "heads": 2,
+    "mlp_hidden": 512,
+    "learned_positional_embeddings": true,
+    "input_standard_deviation": 1.0,
+    "task_standard_deviation": 1.0,
+    "noise_standard_deviation": 0.5,
+    "causal_attention": true
+  },
+  "fresh_prompt_design": {
+    "count_per_condition": 4096,
+    "task_sampling": "independent fresh continuous Gaussian task vectors w~N(0,I8), generated directly without library indexing",
+    "x_sampling": "independent N(0,1) entries",
+    "label_sampling": "y = x dot task + 0.5 epsilon, epsilon iid N(0,1)",
+    "independent_seed": 2026091414,
+    "shared_across_conditions": true,
+    "shared_across_prefixes": true,
+    "no_library_indexing": true,
+    "reuse_old_prompt_bank": false,
+    "observed_label_prefixes": [3, 7, 11, 15],
+    "prediction": "model output at x-token k after k observed labels; future labels are not observed"
+  },
+  "baselines_and_metrics": {
+    "ridge": "exact float64 solve with lambda=noise variance on the first k observed labels",
+    "atomic": "streamed all-atom dMMSE over the full actual nested training-library prefix as a finite-library comparator; no truncation or nearest-neighbor approximation",
+    "N2": "exact finite-n Gaussian second moment in float64 for each context prefix",
+    "noisy_risk_ratio": "mean((T-y)^2) / mean((C-y)^2)",
+    "signal_risk_ratio": "mean((T-y_signal)^2) / mean((C-y_signal)^2)",
+    "Delta_C": "mean((T-C)^2)",
+    "Delta_D": "mean((T-D)^2)",
+    "S": "(Delta_D-Delta_C)/(Delta_D+Delta_C)",
+    "G": "log2(N2)-log2(M)",
+    "C": "(L_T-L_C)/(L_D-L_C), flagged unstable when denominator <= max(1e-8,0.01 L_C)",
+    "bootstrap": "2000 paired-prompt resamples within each condition/prefix, deterministic seed derived from the frozen independent seed",
+    "interval": "percentile 95 percent interval"
+  },
+  "independent_checks": {
+    "task_generator": "assert task schema has no task indices, replay the frozen seed exactly, require alternate seed changes tasks, and check Gaussian task moments",
+    "shared_prompts": "generate the prompt bank once and pass the same arrays/file hash to all four conditions and four prefixes",
+    "n2": "compare batched float64 formula against independent per-prompt float64 solves on first 8 prompts",
+    "atomic": "compare streamed result against materialized float64 posterior on first 8 prompts and first min(4096,M) atoms",
+    "causal_mask": "replace every target from position k onward and require x-token-k prediction max absolute change <= 1e-7",
+    "finite_predictions": "require all model, baseline, and metric inputs/outputs finite"
+  },
+  "pilot_rule": "Run a 128-prompt/100-bootstrap CPU pilot first. Run the full 4096-prompt/2000-bootstrap local evaluation only if measured runtime extrapolates to a few hours or less; otherwise retain the tested package and measured runtime.",
+  "interpretation_limits": [
+    "Checkpoints are interrupted selected follow-ups, not training-seed robustness.",
+    "A prompt bootstrap quantifies prompt variation only, not model-seed uncertainty.",
+    "No mechanism, Fisher, Jacobian, Hessian, or training claims are made."
+  ],
+  "pending_upload_inventory": {
+    "status": "inventory only in this worktree; explicit user approval exists, but no export was performed because colab-cli access was rejected by the sandbox",
+    "items": [
+      "four model-only parameter files for the named checkpoints",
+      "one synthetic master-library prefix through M=16384, whose smaller prefixes are literal slices",
+      "fmts_checkpoint_audit.py inference code",
+      "fresh prompts generated at the destination"
+    ],
+    "excluded": ["optimizer/RNG state", "old prompt bank", "full master library", "trajectory predictions", "training code", "in-library control outputs"]
+  }
+}

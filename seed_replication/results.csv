@@ -1,0 +1,13 @@
+replicate,source,checkpoint_step,prefix_k,noisy_risk_ratio,all_prefix_pass
+0,accepted_existing,290000,3,1.012398892190551,True
+0,accepted_existing,290000,7,1.0189023598507387,True
+0,accepted_existing,290000,11,1.0344449012759929,True
+0,accepted_existing,290000,15,1.0525532534350686,True
+1,local_cpu_replay,290000,3,1.002353246076388,True
+1,local_cpu_replay,290000,7,1.0243511708880437,True
+1,local_cpu_replay,290000,11,1.0594350117162576,True
+1,local_cpu_replay,290000,15,1.049864074764775,True
+2,local_cpu_replay,290000,3,1.0083597837791836,True
+2,local_cpu_replay,290000,7,1.015246272284083,True
+2,local_cpu_replay,290000,11,1.0423104456691705,True
+2,local_cpu_replay,290000,15,1.0316237899153224,True

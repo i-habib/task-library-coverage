@@ -1,0 +1,44 @@
+{
+  "experiment": "FMTS-coverage-intervention-v1",
+  "frozen_date": "2026-09-15",
+  "scientific_question": "When achieved coverage is experimentally assigned on a context-by-context basis, does finite-library posterior and forecast error decrease with R=M/N2 more cleanly than with raw library size?",
+  "design": {
+    "task_family": "x[t+1]=a*x[t]+epsilon[t], a~Uniform[-0.95,0.95], epsilon iid N(0,1), x[0]=0",
+    "n_values": [16, 64, 256, 1024],
+    "contexts_per_n": 256,
+    "target_R": [0.25, 0.5, 1, 2, 4, 8, 16, 32],
+    "library_replicates_per_context": 32,
+    "horizons": [1, 4, 16],
+    "true_assignment": "For each context and target R, set M=ceil(R*N2(context)).",
+    "shuffled_control": "Within each n, deterministically permute N2 across contexts and set M=ceil(R*N2(permuted context)). This preserves the n-specific library-budget distribution while breaking context-specific allocation.",
+    "pairing": "Within each context and library replicate, true and shuffled assignments use nested prefixes of the same iid prior library; all target-R comparisons are therefore paired."
+  },
+  "primary_estimand": {
+    "name": "posterior_mean_error_sq",
+    "definition": "(E_discrete[a|C]-E_continuous[a|C])^2",
+    "reason": "a is bounded and this posterior functional is directly covered by self-normalized importance-sampling error theory.",
+    "primary_comparison": "For true assignment, mean error must decrease from target R=0.25 to R=32 for every n; the fitted log2-log2 slope over R>=2 is reported with a context bootstrap interval.",
+    "positive_pattern": "For all four n values, the fitted high-R slope is negative and its context-bootstrap 95% upper bound is below zero."
+  },
+  "secondary_estimands": [
+    "Posterior-mean squared error divided by continuous posterior variance",
+    "Continuous-versus-finite forecast-mean squared discrepancy at h in {1,4,16}",
+    "Forecast-mean discrepancy divided by continuous posterior predictive variance",
+    "ESS and maximum finite-posterior weight",
+    "Actual achieved log2 R after integer rounding"
+  ],
+  "controls_and_reporting": {
+    "shuffled_N2": "Compare true and shuffled allocations at the same nominal target R using paired context-level mean errors. This is a diagnostic control, not a required theorem consequence.",
+    "raw_M": "Plot and retain raw M for every row. Do not claim that R is superior unless it improves held-out prediction or cross-n organization in the completed data.",
+    "no_perfect_collapse_requirement": "Context length and posterior geometry may retain information at matched R; perfect curve collapse is not required.",
+    "bootstrap": "Average library replicates within context first, then resample independent context clusters. Use 2000 deterministic percentile bootstrap replicates.",
+    "rounding": "Report actual achieved R=M/N2 alongside nominal target R. No row is silently dropped because ceil produces repeated M at low R.",
+    "failed_outcome": "If true allocation does not improve from the lowest to highest target for every n, or any of the four high-R slope intervals includes zero, report the result as a failure of the precommitted positive pattern."
+  },
+  "execution": {
+    "base_seed": 2026091501,
+    "quadrature_order": 96,
+    "parallelization": "One independent shard per n; aggregation requires all four shard metadata files and verifies source/preregistration hashes.",
+    "resumability": "Each n shard writes one atomic CSV and metadata JSON after completion."
+  }
+}

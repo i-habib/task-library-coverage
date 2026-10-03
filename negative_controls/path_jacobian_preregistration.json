@@ -1,0 +1,81 @@
+{
+  "created_before_path_jacobian_results": true,
+  "scope": "zero-retraining audit of existing 3000-step checkpoints",
+  "conditions": [
+    "q8_m32_n16_seed0",
+    "q16_m32_n32_seed0",
+    "q16_m64_n32_seed0"
+  ],
+  "prompts_per_condition": 1024,
+  "radial_path": {
+    "definition": "g(t)=f_T(X,t*y,x_query)",
+    "t_values": [
+      0.0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225,
+      0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475,
+      0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725,
+      0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975,
+      1.0
+    ],
+    "integration": "composite Simpson rule over 40 equal subintervals",
+    "reconstruction_gate": {
+      "normalized_rms_error_max": 0.0001,
+      "maximum_absolute_error_max": 0.001
+    }
+  },
+  "curve_thresholds": {
+    "full_jacobian_ridge_like": {
+      "alpha_min": 0.9,
+      "alpha_max": 1.1,
+      "r_perp_max": 0.2
+    },
+    "action_direction_ridge_like": {
+      "r_act_max": 0.2
+    },
+    "action_close_to_ridge": {
+      "relative_action_error_max": 0.2
+    },
+    "most_points_fraction": 0.8,
+    "few_points_fraction": 0.5,
+    "strong_beta_range_min": 0.2,
+    "early_intermediate_t_max": 0.75
+  },
+  "classification_priority": [
+    {
+      "id": "endpoint_local_only",
+      "rule": "endpoint full Jacobian and action are ridge-like, while fewer than half of early/intermediate path points have both properties",
+      "interpretation": "the endpoint Jacobian was merely local"
+    },
+    {
+      "id": "ridge_direction_variable_gain",
+      "rule": "at least 80% of path points have r_act<=0.2 and beta range is at least 0.2",
+      "interpretation": "approximately correct regression direction with nonlinear gain/shrinkage"
+    },
+    {
+      "id": "full_jacobian_misleading",
+      "rule": "at least 80% of full-Jacobian points look ridge-like but fewer than half of action points are within 0.2 of ridge, after excluding variable gain",
+      "interpretation": "the full-Jacobian diagnostic was misleading for prediction"
+    },
+    {
+      "id": "no_coherent_pattern",
+      "rule": "all other results",
+      "interpretation": "stop chasing the Jacobian anomaly"
+    }
+  ],
+  "constant_density_shell": {
+    "run_only_if_q8_outcome_is": [
+      "endpoint_local_only",
+      "ridge_direction_variable_gain"
+    ],
+    "condition": "q8_m32_n16_seed0",
+    "prompts": 256,
+    "angles_radians": [
+      0.0, 0.3926990817, 0.7853981634, 1.1780972451, 1.5707963268,
+      1.9634954085, 2.3561944902, 2.7488935719, 3.1415926536,
+      3.5342917353, 3.926990817, 4.3196898987, 4.7123889804,
+      5.1050880621, 5.4977871438, 5.8904862255, 6.2831853072
+    ],
+    "whitening_covariance": "Sigma_y=Phi*Phi^T+noise^2*I conditional on X",
+    "direction": "fixed-seed random direction orthogonal to whitened y and rescaled to the same norm"
+  },
+  "no_fifth_interpretation": true
+}

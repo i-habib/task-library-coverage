@@ -1,0 +1,1090 @@
+{
+  "bootstrap_replicates": 2000,
+  "condition_metadata": [
+    {
+      "all_predictions_finite": true,
+      "causal_future_label_max_abs": 0.0,
+      "condition": "M256",
+      "prompt_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/fresh_unseen_prompts.npz",
+      "prompt_file_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657",
+      "prompt_seed": 3285569279,
+      "shared_prompt_bank": true,
+      "shared_prompt_bank_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657"
+    },
+    {
+      "all_predictions_finite": true,
+      "causal_future_label_max_abs": 0.0,
+      "condition": "M4096",
+      "prompt_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/fresh_unseen_prompts.npz",
+      "prompt_file_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657",
+      "prompt_seed": 3285569279,
+      "shared_prompt_bank": true,
+      "shared_prompt_bank_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657"
+    },
+    {
+      "all_predictions_finite": true,
+      "causal_future_label_max_abs": 0.0,
+      "condition": "M8192",
+      "prompt_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/fresh_unseen_prompts.npz",
+      "prompt_file_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657",
+      "prompt_seed": 3285569279,
+      "shared_prompt_bank": true,
+      "shared_prompt_bank_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657"
+    },
+    {
+      "all_predictions_finite": true,
+      "causal_future_label_max_abs": 0.0,
+      "condition": "M16384",
+      "prompt_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/fresh_unseen_prompts.npz",
+      "prompt_file_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657",
+      "prompt_seed": 3285569279,
+      "shared_prompt_bank": true,
+      "shared_prompt_bank_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657"
+    }
+  ],
+  "conditions": [
+    "M256",
+    "M4096",
+    "M8192",
+    "M16384"
+  ],
+  "count": 4096,
+  "dimension": 8,
+  "elapsed_seconds": 136.0055320262909,
+  "export_performed": false,
+  "extraction_audit": {
+    "common_master_library_sha256": "5899d3051b5d5da0fb6d1058c04ead8a12a7f46782c82315cfbf12d8d8d7bb35",
+    "common_model_source_sha256": "646da89549fc7b80bb00ccd3c390b5a35003302d24a9bec527de745df292c94b",
+    "common_spec_sha256": "c6ee87a7c3533053fce19e0d93097834db4087f462d8e5250f673d8f72cbf51a",
+    "conditions": [
+      {
+        "M": 256,
+        "archive": "ANONYMIZED_SOURCE_SNAPSHOTS/screen-M256-step300000.tar.gz",
+        "archive_sha256": "b8439c00c38cc267f9fa9c643da6d57d1bc367856c8f41a0447c650afda08288",
+        "condition": "M256",
+        "library_prefix_raw_sha256": "d91398c9c80ade037af6c55fed18ff67054a177c3462e1a80056d88bcca10767",
+        "library_prefix_shape": [
+          256,
+          8
+        ],
+        "log2_M": 8,
+        "manifest_entries": 14,
+        "manifest_verified": true,
+        "master_library_sha256": "5899d3051b5d5da0fb6d1058c04ead8a12a7f46782c82315cfbf12d8d8d7bb35",
+        "model_parameter_bytes": 6367232,
+        "model_parameter_count": 101,
+        "model_parameter_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/model_M256_step300000.pt",
+        "model_parameter_sha256": "b4b0c753f34a1a0c279439918cf0b915cd54abe8368c1d4f445584bd343572bc",
+        "model_source_sha256": "646da89549fc7b80bb00ccd3c390b5a35003302d24a9bec527de745df292c94b",
+        "optimizer_excluded": true,
+        "resume_top_level_keys": [
+          "generator_state",
+          "identity",
+          "model",
+          "optimizer",
+          "step"
+        ],
+        "rng_excluded": true,
+        "spec_sha256": "c6ee87a7c3533053fce19e0d93097834db4087f462d8e5250f673d8f72cbf51a",
+        "step": 300000
+      },
+      {
+        "M": 4096,
+        "archive": "ANONYMIZED_SOURCE_SNAPSHOTS/screen-M4096-step290000.tar.gz",
+        "archive_sha256": "0ee037e1ad6a782168dded178e14ab8c089d46619ed196c7c89d4fa7d7748e5e",
+        "condition": "M4096",
+        "library_prefix_raw_sha256": "25c58c5bcc02ee9bfed928df6462e69adf4396911fd0f81b8c02f0a24115346c",
+        "library_prefix_shape": [
+          4096,
+          8
+        ],
+        "log2_M": 12,
+        "manifest_entries": 14,
+        "manifest_verified": true,
+        "master_library_sha256": "5899d3051b5d5da0fb6d1058c04ead8a12a7f46782c82315cfbf12d8d8d7bb35",
+        "model_parameter_bytes": 6367232,
+        "model_parameter_count": 101,
+        "model_parameter_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/model_M4096_step290000.pt",
+        "model_parameter_sha256": "6b25b20579a6868b393739d1b190ca5383e447fd0fe0de32a0be169b82e91a6c",
+        "model_source_sha256": "646da89549fc7b80bb00ccd3c390b5a35003302d24a9bec527de745df292c94b",
+        "optimizer_excluded": true,
+        "resume_top_level_keys": [
+          "generator_state",
+          "identity",
+          "model",
+          "optimizer",
+          "step"
+        ],
+        "rng_excluded": true,
+        "spec_sha256": "c6ee87a7c3533053fce19e0d93097834db4087f462d8e5250f673d8f72cbf51a",
+        "step": 290000
+      },
+      {
+        "M": 8192,
+        "archive": "ANONYMIZED_SOURCE_SNAPSHOTS/screen-M8192-step280000.tar.gz",
+        "archive_sha256": "a5c05d8a89b6f33a61e3cfceb18abe41efdcce1e681893ad2da07f573cbe3e62",
+        "condition": "M8192",
+        "library_prefix_raw_sha256": "9934f46158f66def5707467c36b3a07fe8e7babfd8c6695cfc617299013dee3a",
+        "library_prefix_shape": [
+          8192,
+          8
+        ],
+        "log2_M": 13,
+        "manifest_entries": 14,
+        "manifest_verified": true,
+        "master_library_sha256": "5899d3051b5d5da0fb6d1058c04ead8a12a7f46782c82315cfbf12d8d8d7bb35",
+        "model_parameter_bytes": 6367232,
+        "model_parameter_count": 101,
+        "model_parameter_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/model_M8192_step280000.pt",
+        "model_parameter_sha256": "40c6e78d02394b20529825b72682ff4d908512235143f1263416b4d1bfe222a5",
+        "model_source_sha256": "646da89549fc7b80bb00ccd3c390b5a35003302d24a9bec527de745df292c94b",
+        "optimizer_excluded": true,
+        "resume_top_level_keys": [
+          "generator_state",
+          "identity",
+          "model",
+          "optimizer",
+          "step"
+        ],
+        "rng_excluded": true,
+        "spec_sha256": "c6ee87a7c3533053fce19e0d93097834db4087f462d8e5250f673d8f72cbf51a",
+        "step": 280000
+      },
+      {
+        "M": 16384,
+        "archive": "ANONYMIZED_SOURCE_SNAPSHOTS/screen-M16384-step280000.tar.gz",
+        "archive_sha256": "eb3758a8181e1d16e23a8efc3aef9425bffa5cbd5a39cae621540a08eabd340d",
+        "condition": "M16384",
+        "library_prefix_raw_sha256": "0c134e3c4a4978267588064da1d9961f94b4e908e3acf3496f05dc45f41f2877",
+        "library_prefix_shape": [
+          16384,
+          8
+        ],
+        "log2_M": 14,
+        "manifest_entries": 14,
+        "manifest_verified": true,
+        "master_library_sha256": "5899d3051b5d5da0fb6d1058c04ead8a12a7f46782c82315cfbf12d8d8d7bb35",
+        "model_parameter_bytes": 6367232,
+        "model_parameter_count": 101,
+        "model_parameter_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/model_M16384_step280000.pt",
+        "model_parameter_sha256": "a38e22e592d0c9643e4e1a5320a6503f02e9adbc315fa2761dd66d97d4230345",
+        "model_source_sha256": "646da89549fc7b80bb00ccd3c390b5a35003302d24a9bec527de745df292c94b",
+        "optimizer_excluded": true,
+        "resume_top_level_keys": [
+          "generator_state",
+          "identity",
+          "model",
+          "optimizer",
+          "step"
+        ],
+        "rng_excluded": true,
+        "spec_sha256": "c6ee87a7c3533053fce19e0d93097834db4087f462d8e5250f673d8f72cbf51a",
+        "step": 280000
+      }
+    ],
+    "export_performed": false,
+    "library_prefix_file": "ANONYMIZED_HOME/.codex/worktrees/ae41/fisher-icl/artifacts/fmts-checkpoints/master_library_prefix_M16384.pt",
+    "library_prefix_file_dtype": "torch.float32",
+    "library_prefix_file_sha256": "61719fda90c09f53e15ffb9ab6707dcb78abbe233920234b9159b4e449dd5688",
+    "library_prefix_file_shape": [
+      16384,
+      8
+    ],
+    "local_model_source_sha256": "646da89549fc7b80bb00ccd3c390b5a35003302d24a9bec527de745df292c94b",
+    "local_only": true,
+    "snapshot_root": "ANONYMIZED_SOURCE_SNAPSHOTS"
+  },
+  "fresh_prompt_generator_checks": {
+    "alternate_seed_changes_tasks": true,
+    "deterministic_replay": true,
+    "schema": [
+      "data",
+      "signal",
+      "targets",
+      "tasks"
+    ],
+    "task_generator": "numpy Generator.standard_normal directly into task vectors; no library indexing",
+    "task_mean": -0.01182589035007564,
+    "task_std": 0.999153696069466
+  },
+  "inference_seed": 2026091414,
+  "local_only": true,
+  "mode": "full",
+  "noise": 0.5,
+  "points": 16,
+  "prefixes": [
+    3,
+    7,
+    11,
+    15
+  ],
+  "prompt_seed": 3285569279,
+  "rows": [
+    {
+      "C": 0.21364295776777273,
+      "C_ci95": [
+        0.15833644360272947,
+        0.26966760022283287
+      ],
+      "C_denominator": 2.350852963625922,
+      "Delta_C": 0.5635085671829781,
+      "Delta_C_ci95": [
+        0.49621208952798246,
+        0.6416579945415468
+      ],
+      "Delta_D": 2.1181052884098515,
+      "Delta_D_ci95": [
+        1.9714794972118042,
+        2.278114847696005
+      ],
+      "G_mean": -0.3109256950279593,
+      "G_mean_ci95": [
+        -0.36585147456223527,
+        -0.25421219401629175
+      ],
+      "G_median": -0.6852846693085342,
+      "L_C": 5.54640858603745,
+      "L_D": 7.897261549663372,
+      "L_T": 6.048651766463626,
+      "M": 256,
+      "S": 0.5797243022087517,
+      "S_ci95": [
+        0.5312546200655717,
+        0.6242378643830345
+      ],
+      "atomic_float64_subset_max_abs": 6.097534264615234e-06,
+      "bootstrap_seed": 1067484210,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 300000,
+      "condition": "M256",
+      "elapsed_seconds": 0.32219982147216797,
+      "log2_M": 8,
+      "n2_float64_subset_max_abs": 2.042810365310288e-14,
+      "noisy_risk_ratio": 1.090552863647753,
+      "noisy_risk_ratio_ci95": [
+        1.065056138706664,
+        1.1206046798807483
+      ],
+      "prefix_k": 3,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0977142497944714,
+      "signal_risk_ratio_ci95": [
+        1.0717669845551732,
+        1.1282452308106714
+      ]
+    },
+    {
+      "C": 0.33984655531757624,
+      "C_ci95": [
+        0.301469422877761,
+        0.37966215455234853
+      ],
+      "C_denominator": 3.7706126667995585,
+      "Delta_C": 1.308590458056433,
+      "Delta_C_ci95": [
+        1.2262873500575824,
+        1.3947462769485877
+      ],
+      "Delta_D": 3.057702268049117,
+      "Delta_D_ci95": [
+        2.8674827697938885,
+        3.2487153156896755
+      ],
+      "G_mean": 7.879598124755107,
+      "G_mean_ci95": [
+        7.796686737727103,
+        7.962572868133087
+      ],
+      "G_median": 7.4859663107749626,
+      "L_C": 2.258942641705616,
+      "L_D": 6.0295553085051745,
+      "L_T": 3.540372367954266,
+      "M": 256,
+      "S": 0.40059426147380145,
+      "S_ci95": [
+        0.3627761793396762,
+        0.4347277259253623
+      ],
+      "atomic_float64_subset_max_abs": 3.1435966192372433e-06,
+      "bootstrap_seed": 2675171443,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 300000,
+      "condition": "M256",
+      "elapsed_seconds": 0.2057030200958252,
+      "log2_M": 8,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 1.5672697051223512,
+      "noisy_risk_ratio_ci95": [
+        1.4972915458117741,
+        1.6409334947708305
+      ],
+      "prefix_k": 7,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.6558150735983241,
+      "signal_risk_ratio_ci95": [
+        1.5746306633957672,
+        1.737318563816633
+      ]
+    },
+    {
+      "C": 0.3777513372011181,
+      "C_ci95": [
+        0.351626959493707,
+        0.4052269566002248
+      ],
+      "C_denominator": 3.9769557840199847,
+      "Delta_C": 1.4564564864033633,
+      "Delta_C_ci95": [
+        1.3682593307168822,
+        1.5451227089245376
+      ],
+      "Delta_D": 2.654712989163586,
+      "Delta_D_ci95": [
+        2.4960676423026027,
+        2.8329892590173236
+      ],
+      "G_mean": 12.708810976621464,
+      "G_mean_ci95": [
+        12.619835494023045,
+        12.80416899603885
+      ],
+      "G_median": 12.239760602078812,
+      "L_C": 0.8863522045385666,
+      "L_D": 4.863307988558551,
+      "L_T": 2.388652569941837,
+      "M": 256,
+      "S": 0.29146366012920877,
+      "S_ci95": [
+        0.25450290902813705,
+        0.32935184663121087
+      ],
+      "atomic_float64_subset_max_abs": 1.1652330896838592e-06,
+      "bootstrap_seed": 550029553,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 300000,
+      "condition": "M256",
+      "elapsed_seconds": 0.24934101104736328,
+      "log2_M": 8,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 2.694924836550009,
+      "noisy_risk_ratio_ci95": [
+        2.54341913544749,
+        2.85737212106503
+      ],
+      "prefix_k": 11,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 3.32477679027599,
+      "signal_risk_ratio_ci95": [
+        3.117898325684105,
+        3.5460332112639343
+      ]
+    },
+    {
+      "C": 0.3562574352578719,
+      "C_ci95": [
+        0.3285832092849168,
+        0.38679074538412095
+      ],
+      "C_denominator": 3.479291809127745,
+      "Delta_C": 1.293819185769825,
+      "Delta_C_ci95": [
+        1.202543476446674,
+        1.398561976833395
+      ],
+      "Delta_D": 2.368378390828248,
+      "Delta_D_ci95": [
+        2.2180803287065487,
+        2.5217640245498703
+      ],
+      "G_mean": 15.416691974496011,
+      "G_mean_ci95": [
+        15.33074788195779,
+        15.50680524651289
+      ],
+      "G_median": 14.935841136932416,
+      "L_C": 0.5603886502665983,
+      "L_D": 4.039680459394344,
+      "L_T": 1.7999122267001701,
+      "M": 256,
+      "S": 0.29341923328358865,
+      "S_ci95": [
+        0.2487680946410988,
+        0.33469377635992786
+      ],
+      "atomic_float64_subset_max_abs": 2.6267855668393736e-08,
+      "bootstrap_seed": 1562651671,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 300000,
+      "condition": "M256",
+      "elapsed_seconds": 0.23061895370483398,
+      "log2_M": 8,
+      "n2_float64_subset_max_abs": 9.841016890277388e-13,
+      "noisy_risk_ratio": 3.2118998588638137,
+      "noisy_risk_ratio_ci95": [
+        2.996947665767243,
+        3.4490705984046697
+      ],
+      "prefix_k": 15,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 5.161332484310781,
+      "signal_risk_ratio_ci95": [
+        4.758316091682778,
+        5.635790711537725
+      ]
+    },
+    {
+      "C": 0.1423026431173612,
+      "C_ci95": [
+        0.07539571287852997,
+        0.22819470791919536
+      ],
+      "C_denominator": 0.4832610315347958,
+      "Delta_C": 0.03798200402134795,
+      "Delta_C_ci95": [
+        0.034727393231411385,
+        0.04159737212762419
+      ],
+      "Delta_D": 0.50323911463455,
+      "Delta_D_ci95": [
+        0.4383148661626771,
+        0.5747982099872946
+      ],
+      "G_mean": -4.310925695027958,
+      "G_mean_ci95": [
+        -4.366002670524173,
+        -4.251488070784097
+      ],
+      "G_median": -4.685284669308534,
+      "L_C": 5.54640858603745,
+      "L_D": 6.029669617572246,
+      "L_T": 5.615177908140474,
+      "M": 4096,
+      "S": 0.8596433039580021,
+      "S_ci95": [
+        0.838148034015765,
+        0.8780884963204327
+      ],
+      "atomic_float64_subset_max_abs": 2.131466440946639e-05,
+      "bootstrap_seed": 3485100087,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 290000,
+      "condition": "M4096",
+      "elapsed_seconds": 0.7115578651428223,
+      "log2_M": 12,
+      "n2_float64_subset_max_abs": 2.042810365310288e-14,
+      "noisy_risk_ratio": 1.012398892190551,
+      "noisy_risk_ratio_ci95": [
+        1.0067705728866838,
+        1.0182733990294448
+      ],
+      "prefix_k": 3,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0122433275295621,
+      "signal_risk_ratio_ci95": [
+        1.0063409673466337,
+        1.0182092230605924
+      ]
+    },
+    {
+      "C": 0.021792160978615496,
+      "C_ci95": [
+        0.009478229354497048,
+        0.0340372264759488
+      ],
+      "C_denominator": 1.9593902017151184,
+      "Delta_C": 0.04260636918931259,
+      "Delta_C_ci95": [
+        0.03916943896934385,
+        0.04642540085508572
+      ],
+      "Delta_D": 1.8548342279849226,
+      "Delta_D_ci95": [
+        1.7351771570298773,
+        1.9845214505490814
+      ],
+      "G_mean": 3.8795981247551072,
+      "G_mean_ci95": [
+        3.8006655615357707,
+        3.9618165099448874
+      ],
+      "G_median": 3.4859663107749626,
+      "L_C": 2.258942641705616,
+      "L_D": 4.218332843420734,
+      "L_T": 2.3016419884013137,
+      "M": 4096,
+      "S": 0.9550906950628503,
+      "S_ci95": [
+        0.9503750126346067,
+        0.9591514409231781
+      ],
+      "atomic_float64_subset_max_abs": 3.464612696379987e-05,
+      "bootstrap_seed": 1216610691,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 290000,
+      "condition": "M4096",
+      "elapsed_seconds": 0.6864538192749023,
+      "log2_M": 12,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 1.0189023598507387,
+      "noisy_risk_ratio_ci95": [
+        1.0084534283048832,
+        1.0291095027383166
+      ],
+      "prefix_k": 7,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0195661035541403,
+      "signal_risk_ratio_ci95": [
+        1.0084731625402925,
+        1.0308601164079532
+      ]
+    },
+    {
+      "C": 0.01592269378369778,
+      "C_ci95": [
+        0.009920568782096347,
+        0.022299377238942354
+      ],
+      "C_denominator": 1.9174088628362345,
+      "Delta_C": 0.03133790874517754,
+      "Delta_C_ci95": [
+        0.029089258256415867,
+        0.03369233099334243
+      ],
+      "Delta_D": 1.8863986020724948,
+      "Delta_D_ci95": [
+        1.782738387464026,
+        1.9936695779118137
+      ],
+      "G_mean": 8.708810976621464,
+      "G_mean_ci95": [
+        8.620806493503338,
+        8.797470297146187
+      ],
+      "G_median": 8.239760602078812,
+      "L_C": 0.8863522045385666,
+      "L_D": 2.803761067374801,
+      "L_T": 0.9168825187196561,
+      "M": 4096,
+      "S": 0.9673178160102758,
+      "S_ci95": [
+        0.9643446825714699,
+        0.9698142204655088
+      ],
+      "atomic_float64_subset_max_abs": 1.6397308089111107e-06,
+      "bootstrap_seed": 3299732447,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 290000,
+      "condition": "M4096",
+      "elapsed_seconds": 2.4966681003570557,
+      "log2_M": 12,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 1.0344449012759929,
+      "noisy_risk_ratio_ci95": [
+        1.0213065585718284,
+        1.0488172418851618
+      ],
+      "prefix_k": 11,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0485271905854876,
+      "signal_risk_ratio_ci95": [
+        1.0315709863079674,
+        1.0665187584436158
+      ]
+    },
+    {
+      "C": 0.015593998111437416,
+      "C_ci95": [
+        0.01175167004952771,
+        0.019607536450018406
+      ],
+      "C_denominator": 1.8885629297336024,
+      "Delta_C": 0.02259891425009779,
+      "Delta_C_ci95": [
+        0.02099721308036138,
+        0.024260209900367237
+      ],
+      "Delta_D": 1.8533937470047777,
+      "Delta_D_ci95": [
+        1.7513180630263208,
+        1.9582941604006363
+      ],
+      "G_mean": 11.416691974496013,
+      "G_mean_ci95": [
+        11.330422710719843,
+        11.50447953561609
+      ],
+      "G_median": 10.935841136932416,
+      "L_C": 0.5603886502665983,
+      "L_D": 2.448951580000201,
+      "L_T": 0.5898388970261949,
+      "M": 4096,
+      "S": 0.9759072466360491,
+      "S_ci95": [
+        0.9738275988074956,
+        0.9778189421435932
+      ],
+      "atomic_float64_subset_max_abs": 1.121392600184068e-05,
+      "bootstrap_seed": 2963763491,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 290000,
+      "condition": "M4096",
+      "elapsed_seconds": 1.7448880672454834,
+      "log2_M": 12,
+      "n2_float64_subset_max_abs": 9.841016890277388e-13,
+      "noisy_risk_ratio": 1.0525532534350686,
+      "noisy_risk_ratio_ci95": [
+        1.0390303273928962,
+        1.0669248658304562
+      ],
+      "prefix_k": 15,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.09506514061645,
+      "signal_risk_ratio_ci95": [
+        1.0730783375030135,
+        1.1183282991570282
+      ]
+    },
+    {
+      "C": 0.04838201096318167,
+      "C_ci95": [
+        -0.02539607330262966,
+        0.12415084026910919
+      ],
+      "C_denominator": 0.2973893723837415,
+      "Delta_C": 0.018250909264040573,
+      "Delta_C_ci95": [
+        0.017026997274718514,
+        0.019485728568623337
+      ],
+      "Delta_D": 0.2968840282332983,
+      "Delta_D_ci95": [
+        0.25922394694119993,
+        0.3400412871887319
+      ],
+      "G_mean": -5.31092569502796,
+      "G_mean_ci95": [
+        -5.3660825547798225,
+        -5.254246958121475
+      ],
+      "G_median": -5.685284669308534,
+      "L_C": 5.54640858603745,
+      "L_D": 5.843797958421192,
+      "L_T": 5.560796881912454,
+      "M": 8192,
+      "S": 0.8841708291122455,
+      "S_ci95": [
+        0.8676114035486124,
+        0.8992306261267502
+      ],
+      "atomic_float64_subset_max_abs": 2.131466440946639e-05,
+      "bootstrap_seed": 1621762018,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M8192",
+      "elapsed_seconds": 1.2431819438934326,
+      "log2_M": 13,
+      "n2_float64_subset_max_abs": 2.042810365310288e-14,
+      "noisy_risk_ratio": 1.0025941644312366,
+      "noisy_risk_ratio_ci95": [
+        0.9987596325350503,
+        1.0063415486478478
+      ],
+      "prefix_k": 3,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0030447926503891,
+      "signal_risk_ratio_ci95": [
+        0.9990309172273083,
+        1.006904241204641
+      ]
+    },
+    {
+      "C": 0.008687198835794357,
+      "C_ci95": [
+        -0.0027406145030718196,
+        0.02074240296845533
+      ],
+      "C_denominator": 1.5797569575157495,
+      "Delta_C": 0.02676183488357061,
+      "Delta_C_ci95": [
+        0.024968777039290922,
+        0.028760449142425107
+      ],
+      "Delta_D": 1.5650911824518936,
+      "Delta_D_ci95": [
+        1.4592764362379007,
+        1.69017865478832
+      ],
+      "G_mean": 2.8795981247551072,
+      "G_mean_ci95": [
+        2.7986288765611014,
+        2.9567450774313895
+      ],
+      "G_median": 2.4859663107749626,
+      "L_C": 2.258942641705616,
+      "L_D": 3.8386995992213655,
+      "L_T": 2.272666304507785,
+      "M": 8192,
+      "S": 0.9663765001012894,
+      "S_ci95": [
+        0.9631729836624529,
+        0.9692551961245508
+      ],
+      "atomic_float64_subset_max_abs": 3.464612696379987e-05,
+      "bootstrap_seed": 3255946915,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M8192",
+      "elapsed_seconds": 1.199821949005127,
+      "log2_M": 13,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 1.0060752595257605,
+      "noisy_risk_ratio_ci95": [
+        0.9981285712126643,
+        1.014159504750186
+      ],
+      "prefix_k": 7,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.005954492195049,
+      "signal_risk_ratio_ci95": [
+        0.9970733694963843,
+        1.0148038726436217
+      ]
+    },
+    {
+      "C": 0.015369506950260277,
+      "C_ci95": [
+        0.008630866260243146,
+        0.022103002862491596
+      ],
+      "C_denominator": 1.6137039336636438,
+      "Delta_C": 0.0228733606421688,
+      "Delta_C_ci95": [
+        0.02149374808035229,
+        0.024394030699269258
+      ],
+      "Delta_D": 1.6111057538085962,
+      "Delta_D_ci95": [
+        1.5139511855894043,
+        1.7054959437189883
+      ],
+      "G_mean": 7.708810976621464,
+      "G_mean_ci95": [
+        7.6204106872072845,
+        7.797907382710571
+      ],
+      "G_median": 7.239760602078812,
+      "L_C": 0.8863522045385666,
+      "L_D": 2.5000561382022104,
+      "L_T": 0.9111540383626723,
+      "M": 8192,
+      "S": 0.9720028726929509,
+      "S_ci95": [
+        0.9698865429527325,
+        0.9740462140445183
+      ],
+      "atomic_float64_subset_max_abs": 1.6397308089111107e-06,
+      "bootstrap_seed": 2468301628,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M8192",
+      "elapsed_seconds": 1.231640100479126,
+      "log2_M": 13,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 1.0279819170044457,
+      "noisy_risk_ratio_ci95": [
+        1.0155348257148415,
+        1.041109432454002
+      ],
+      "prefix_k": 11,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.036118728504766,
+      "signal_risk_ratio_ci95": [
+        1.0205950019001606,
+        1.0520977717568316
+      ]
+    },
+    {
+      "C": 0.013019880465081624,
+      "C_ci95": [
+        0.009112281983912413,
+        0.017103146207229684
+      ],
+      "C_denominator": 1.6057271049990391,
+      "Delta_C": 0.016193334157734378,
+      "Delta_C_ci95": [
+        0.015314654010674328,
+        0.017155857287873534
+      ],
+      "Delta_D": 1.6273211014430393,
+      "Delta_D_ci95": [
+        1.5348895811912617,
+        1.7294504992874724
+      ],
+      "G_mean": 10.416691974496011,
+      "G_mean_ci95": [
+        10.329049493249332,
+        10.506107159924504
+      ],
+      "G_median": 9.935841136932416,
+      "L_C": 0.5603886502665983,
+      "L_D": 2.1661157552656376,
+      "L_T": 0.5812950252332274,
+      "M": 8192,
+      "S": 0.9802942599018731,
+      "S_ci95": [
+        0.9786988730797453,
+        0.9817302768445444
+      ],
+      "atomic_float64_subset_max_abs": 1.121392600184068e-05,
+      "bootstrap_seed": 588332667,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M8192",
+      "elapsed_seconds": 1.572587013244629,
+      "log2_M": 13,
+      "n2_float64_subset_max_abs": 9.841016890277388e-13,
+      "noisy_risk_ratio": 1.0373069207534504,
+      "noisy_risk_ratio_ci95": [
+        1.0263113330123355,
+        1.0489284367306801
+      ],
+      "prefix_k": 15,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0550447555463518,
+      "signal_risk_ratio_ci95": [
+        1.0385319777258692,
+        1.0724148150953885
+      ]
+    },
+    {
+      "C": 0.11407047962461915,
+      "C_ci95": [
+        -0.049373504197351495,
+        0.31230953974337217
+      ],
+      "C_denominator": 0.1444554594653713,
+      "Delta_C": 0.016385384797025667,
+      "Delta_C_ci95": [
+        0.01518228815442824,
+        0.01769426587326828
+      ],
+      "Delta_D": 0.16980519698258467,
+      "Delta_D_ci95": [
+        0.1488009847606108,
+        0.19657444568887028
+      ],
+      "G_mean": -6.31092569502796,
+      "G_mean_ci95": [
+        -6.3652446393065585,
+        -6.253666920164212
+      ],
+      "G_median": -6.685284669308534,
+      "L_C": 5.54640858603745,
+      "L_D": 5.690864045502821,
+      "L_T": 5.56288668958306,
+      "M": 16384,
+      "S": 0.8239934088994825,
+      "S_ci95": [
+        0.8002078356851301,
+        0.8457990199376126
+      ],
+      "atomic_float64_subset_max_abs": 2.131466440946639e-05,
+      "bootstrap_seed": 2268770973,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M16384",
+      "elapsed_seconds": 2.397845983505249,
+      "log2_M": 14,
+      "n2_float64_subset_max_abs": 2.042810365310288e-14,
+      "noisy_risk_ratio": 1.00297095017253,
+      "noisy_risk_ratio_ci95": [
+        0.9987565514373765,
+        1.0070148878180234
+      ],
+      "prefix_k": 3,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0032109765447366,
+      "signal_risk_ratio_ci95": [
+        0.998889797092559,
+        1.0072373093549636
+      ]
+    },
+    {
+      "C": 0.013613085546437682,
+      "C_ci95": [
+        -0.0017112617777905815,
+        0.02851040061140929
+      ],
+      "C_denominator": 1.1616937020671796,
+      "Delta_C": 0.02556636860876898,
+      "Delta_C_ci95": [
+        0.023995426999602536,
+        0.02734510867897003
+      ],
+      "Delta_D": 1.1988639468184228,
+      "Delta_D_ci95": [
+        1.1075748894465047,
+        1.2993812218434455
+      ],
+      "G_mean": 1.8795981247551075,
+      "G_mean_ci95": [
+        1.797612667756834,
+        1.9629631080625056
+      ],
+      "G_median": 1.4859663107749626,
+      "L_C": 2.258942641705616,
+      "L_D": 3.4206363437727956,
+      "L_T": 2.2747568774506144,
+      "M": 16384,
+      "S": 0.9582395693954225,
+      "S_ci95": [
+        0.9540926091477221,
+        0.9619861026160976
+      ],
+      "atomic_float64_subset_max_abs": 3.464612696379987e-05,
+      "bootstrap_seed": 574072300,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M16384",
+      "elapsed_seconds": 3.59098219871521,
+      "log2_M": 14,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 1.0070007247873536,
+      "noisy_risk_ratio_ci95": [
+        0.999090165726956,
+        1.0147218058962388
+      ],
+      "prefix_k": 7,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.006831000257006,
+      "signal_risk_ratio_ci95": [
+        0.9982349406653465,
+        1.0151556271119773
+      ]
+    },
+    {
+      "C": 0.017614213952055414,
+      "C_ci95": [
+        0.009502710150603546,
+        0.025590881592228682
+      ],
+      "C_denominator": 1.2676697875530292,
+      "Delta_C": 0.02126787421337249,
+      "Delta_C_ci95": [
+        0.020026284410512518,
+        0.022596853017506777
+      ],
+      "Delta_D": 1.3117603227513572,
+      "Delta_D_ci95": [
+        1.2371858124728439,
+        1.3946220952054564
+      ],
+      "G_mean": 6.708810976621464,
+      "G_mean_ci95": [
+        6.622952986399863,
+        6.7966702700275805
+      ],
+      "G_median": 6.239760602078812,
+      "L_C": 0.8863522045385666,
+      "L_D": 2.1540219920915957,
+      "L_T": 0.9086812113970822,
+      "M": 16384,
+      "S": 0.96809088620661,
+      "S_ci95": [
+        0.9655129078109232,
+        0.9704075477185261
+      ],
+      "atomic_float64_subset_max_abs": 1.6397308089111107e-06,
+      "bootstrap_seed": 654782306,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M16384",
+      "elapsed_seconds": 2.810447931289673,
+      "log2_M": 14,
+      "n2_float64_subset_max_abs": 1.6342482922482304e-13,
+      "noisy_risk_ratio": 1.0251920249582276,
+      "noisy_risk_ratio_ci95": [
+        1.0136246137435945,
+        1.0363475619639253
+      ],
+      "prefix_k": 11,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.0327330684280636,
+      "signal_risk_ratio_ci95": [
+        1.0184557979082858,
+        1.0467913111644311
+      ]
+    },
+    {
+      "C": 0.015381434335452429,
+      "C_ci95": [
+        0.010151437522881291,
+        0.02066995420983317
+      ],
+      "C_denominator": 1.3514137243399666,
+      "Delta_C": 0.016316730179980796,
+      "Delta_C_ci95": [
+        0.015408649767447156,
+        0.017273580463133896
+      ],
+      "Delta_D": 1.3848767102859283,
+      "Delta_D_ci95": [
+        1.2975352972330307,
+        1.4843646417934282
+      ],
+      "G_mean": 9.416691974496011,
+      "G_mean_ci95": [
+        9.329435723214512,
+        9.504228330059444
+      ],
+      "G_median": 8.935841136932416,
+      "L_C": 0.5603886502665983,
+      "L_D": 1.911802374606565,
+      "L_T": 0.5811753317275627,
+      "M": 16384,
+      "S": 0.9767102389880512,
+      "S_ci95": [
+        0.9747209443609895,
+        0.978419617957678
+      ],
+      "atomic_float64_subset_max_abs": 1.121392600184068e-05,
+      "bootstrap_seed": 1735247290,
+      "causal_future_label_max_abs": 0.0,
+      "checkpoint_step": 280000,
+      "condition": "M16384",
+      "elapsed_seconds": 2.3926050662994385,
+      "log2_M": 14,
+      "n2_float64_subset_max_abs": 9.841016890277388e-13,
+      "noisy_risk_ratio": 1.03709333058597,
+      "noisy_risk_ratio_ci95": [
+        1.0245343636648476,
+        1.0490198501345684
+      ],
+      "prefix_k": 15,
+      "prompt_count": 4096,
+      "prompt_seed": 3285569279,
+      "signal_risk_ratio": 1.056454541777186,
+      "signal_risk_ratio_ci95": [
+        1.0382507684874327,
+        1.074175962506711
+      ]
+    }
+  ],
+  "shared_prompt_bank": true,
+  "shared_prompt_bank_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657"
+}

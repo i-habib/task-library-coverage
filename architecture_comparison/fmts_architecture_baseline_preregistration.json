@@ -1,0 +1,37 @@
+{
+  "created_before_new_training_outcomes": true,
+  "date": "2026-09-15",
+  "stage": "fmts_parameter_matched_gru_v1",
+  "question": "Does continuous-Bayes behavior beyond finite-library coverage persist in a parameter-matched recurrent architecture under the same data, libraries, schedule, and evaluation prompts?",
+  "design": {
+    "architecture": "Four-layer causal GRU with hidden size 256, 128-dimensional input projection, final layer normalization, and scalar readout at x-token positions",
+    "parameter_comparison": "Approximately 1.48M trainable parameters versus approximately 1.59M for the eight-layer width-128 Transformer",
+    "replicate_ids": [1, 2],
+    "task_library_size": 4096,
+    "libraries": "Reuse the exact saved M=4096 task-library tensors from the two completed Transformer replications",
+    "prompt_bank": "Reuse the exact 4096-prompt unseen-task bank used for the Transformer replications",
+    "training_distribution": "Uniform task sampling from the fixed library; iid N(0,I8) covariates; iid N(0,0.25) label noise; loss at all 16 x-token positions",
+    "optimizer": "Adam, batch 256, peak learning rate 0.001, linear warmup through step 250000 and linear decay against a nominal 500000-step horizon",
+    "endpoint_step": 290000,
+    "checkpoint_schedule": "Resumable state every 5000 steps; metrics at steps 0, 1000, 5000, 10000, every 25000, and 290000"
+  },
+  "evaluation": {
+    "prefixes": [3, 7, 11, 15],
+    "primary_competence_gate": "GRU/ridge noisy-target risk ratio is strictly below 1.2 at all four prefixes",
+    "morphology": "S=(Delta_D-Delta_C)/(Delta_D+Delta_C), with Delta_D and Delta_C the mean squared distances to exact finite-library Bayes and continuous Bayes",
+    "high_gap_test": "At k=15 report S with a paired-prompt 95% bootstrap interval and the exact mean coverage gap G",
+    "bootstrap_replicates": 2000,
+    "causal_check": "Changing the hidden query label must change its prediction by at most 1e-7"
+  },
+  "frozen_outcomes": {
+    "architecture_general": "Both GRU runs pass the all-prefix competence gate and have positive k=15 S lower confidence bounds. Report that extrapolation beyond literal library support is not Transformer-specific in this setup.",
+    "recurrent_retrieval_like": "Both GRU runs fail the competence gate and their k=15 S upper confidence bounds are non-positive. Report evidence that the recurrent baseline remains closer to finite-library retrieval under the matched schedule; do not claim a universal architecture theorem.",
+    "optimization_or_morphology_mismatch": "Both GRU runs fail competence but retain positive k=15 S, or pass competence while k=15 S is not reliably positive. Report a training/inductive-bias difference without describing the GRU as retrieval-like.",
+    "mixed": "The two GRU runs produce different frozen outcomes. Report the comparison as seed-sensitive and inconclusive."
+  },
+  "limits": [
+    "A matched parameter count and schedule do not equalize optimization difficulty across architectures.",
+    "Two recurrent seeds are a focused comparison, not a population-level architecture claim.",
+    "A failed competence gate is not evidence of retrieval unless the prediction-morphology criterion also supports finite-library Bayes."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "configuration": {
+    "a_max": 0.95,
+    "base_seed": 2026091501,
+    "bootstrap_replicates": 2000,
+    "contexts_per_n": 256,
+    "horizons": [
+      1,
+      4,
+      16
+    ],
+    "library_replicates": 32,
+    "n_values": [
+      16,
+      64,
+      256,
+      1024
+    ],
+    "quadrature_order": 96,
+    "target_R": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0
+    ],
+    "version": "FMTS-coverage-intervention-v1"
+  },
+  "contexts": 256,
+  "elapsed_seconds": 145.81487774848938,
+  "environment": {
+    "numpy": "2.1.3",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "python": "3.13.15"
+  },
+  "n": 16,
+  "n2_summary": {
+    "maximum": 23.21997404890856,
+    "median": 2.590155864697585,
+    "minimum": 1.4707372320741643
+  },
+  "preregistration_sha256": "572a9bbbb5cb42cc675c5a1f68a0c27ee90a6b0993cb4fbd1c29de09565a5a19",
+  "rows": 131072,
+  "rows_sha256": "7da9e0719403c679a0210088b45bc37486734f8511566ab0390aeb0123d91768",
+  "shuffle_permutation_sha256": "224e7ac873d8bbc371bee4c95fb2a4ea775b6aa5e22488400c88b0b20a2e9f69",
+  "source_sha256": "7d488cdb107b6cc76a20de46620c28f25a312767dd3b77cf6174e8e216c155b1",
+  "status": "complete",
+  "temporal_source_sha256": "545204c5fbee6e2ed1e926803b01168dfe9bf1eade11d82c1967790cd655e88c",
+  "version": "FMTS-coverage-intervention-v1"
+}

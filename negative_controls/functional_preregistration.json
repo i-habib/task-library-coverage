@@ -1,0 +1,59 @@
+{
+  "experiment": "prediction-functional-coverage-20260914-v1",
+  "frozen_utc_date": "2026-09-14",
+  "pre_outcome_technical_amendment": "During the preregistered formula-only Monte Carlo check, the first direct prior-Monte-Carlo N2 estimate exposed an omitted factor of one half in the determinant term of the written identity. The correct term is -logdet(Sigma), not -0.5 logdet(Sigma). This correction was made before any simulated finite-library comparison outcomes were generated; the failed validation diagnostic is retained in the working history, and the corrected formula must pass the same frozen MC tolerance.",
+  "scope": "CPU-only Gaussian linear regression experiment; no manuscript edits and no Transformer training.",
+  "question": "Does the query-functional self-normalized importance-sampling ratio R_f better predict finite-library dMMSE posterior-mean discrepancy than global R=M/N2?",
+  "model": {
+    "parameter": "w in R^r",
+    "prior": "w ~ N(0,I_r)",
+    "design": "X has iid N(0,1) entries and shape n by r",
+    "truth": "w_star ~ N(0,I_r), independently of X",
+    "observation": "y=X w_star+epsilon; epsilon~N(0,s2 I_n)",
+    "continuous_predictor": "posterior mean mu=(I+X'X/s2)^(-1) X'y/s2",
+    "finite_predictor": "self-normalized likelihood-weighted mean over iid prior draws, using exact nested prefixes"
+  },
+  "conditions": {
+    "r": [1, 2, 4],
+    "n": [8, 32, 64],
+    "noise_variance_s2": [0.25, 1.0],
+    "contexts_per_condition": 64,
+    "independent_library_replicates_per_context": 2,
+    "library_M_targets": "round(N2 * R_target), with R_target in [0.25,1,4], minimum M=2 and cap M=131072; use achieved R=M/N2 and record every cap/rounding event",
+    "library_design": "For each context, the two iid Gaussian prior libraries are independent; within each library all M values are nested prefixes. The same context and library prefixes are paired across every query direction."
+  },
+  "query_directions": {
+    "construction": "Within each context use all r coordinate unit vectors, posterior-covariance eigenvectors for its smallest and largest eigenvalues, and four independently drawn uniform-sphere directions. Normalize every direction to unit Euclidean norm and fix eigenvector signs by making the first nonzero coordinate positive.",
+    "functional": "f_a(w)=a'w",
+    "replication": "The direction set is shared by both library replicates and all M prefixes for its context.",
+    "types_for_adjustment": ["coordinate", "posterior_variance_min", "posterior_variance_max", "random_sphere"]
+  },
+  "estimands": {
+    "global_coverage": "N2=E_P[(L/Z1)^2], R=M/N2",
+    "functional_asymptotic_variance": "V_f=E_P[(L/Z1)^2 (f_a-Q f_a)^2], the asymptotic variance of sqrt(M)*(self-normalized estimate-Qf)",
+    "functional_coverage": "R_f=M Var_Q(f_a)/V_f",
+    "outcome": "For each context, achieved M, and query direction, average squared finite-library posterior-mean discrepancy (a'(mu_hat_M-mu))^2 over the two independent libraries, then divide by Var_Q(f_a). Analyze its natural logarithm with a fixed 1e-12 floor."
+  },
+  "exact_gaussian_derivation": {
+    "notation": "K=Sigma^(-1)=I+X'X/s2, Sigma=K^(-1), H=2K-I, g=N(nu,H^(-1)), nu=H^(-1)2Kmu",
+    "tilting_identity": "q(w)^2/p(w)=N2*g(w)",
+    "log_N2_independent_identity": "-logdet(Sigma)-0.5 logdet(H)+2 mu' K H^(-1) K mu-mu'Kmu",
+    "V_f_identity": "N2 * (a'H^(-1)a + (a'(nu-mu))^2)",
+    "validation": "Check log N2 against the repository's independent exact_log_n2 likelihood-integral calculation for every simulated context. Before the experiment comparison, directly Monte Carlo-integrate N2 and V_f under P for three fixed moderate-overlap Gaussian cases (r=1,2,4), with 1,000,000 draws and batch-standard-error diagnostics; require errors within eight batch standard errors or 1% relative, whichever is larger."
+  },
+  "prediction_comparison": {
+    "split": "Within every (r,n,s2) condition, context ids 0-47 are training and 48-63 are held-out; this split is deterministic and made before simulation.",
+    "models": "Fit ordinary least squares on training contexts to log outcome, with fixed effects for (r,n,s2) condition and query-direction type, and one continuous predictor: log achieved global R or log achieved functional R_f. Use identical rows and fixed effects for the paired comparison.",
+    "primary_score": "Held-out context-weighted RMSE on log outcome, first averaging squared residuals over each context's M-by-direction rows and then averaging contexts equally within condition.",
+    "primary_contrast": "Delta=RMSE(log R_f model)-RMSE(log R model); negative favors functional coverage. Form a paired 95% percentile interval using 2000 bootstrap resamples of held-out whole contexts independently within each condition. The fitted training models remain fixed in this test-set bootstrap.",
+    "support_rule": "Call R_f superior only if Delta's 95% interval is below zero and its point estimate is at least a 5% reduction relative to global-R held-out RMSE. Call global R superior by the symmetric rule. Otherwise report the comparison as inconclusive or a tie.",
+    "sensitivity": "Repeat the paired held-out comparison after dropping capped-M rows; report cap rates and do not replace the primary achieved-R analysis."
+  },
+  "computation_and_integrity": {
+    "seed": 2026091401,
+    "random_streams": "SHA-256-derived independent deterministic streams keyed by condition, context, query-direction generation, and library replicate.",
+    "resumability": "Write each completed (r,n,s2) condition atomically as one compressed raw artifact; a restart verifies and skips completed conditions.",
+    "uncertainty_unit": "Independent data context, retaining its query directions, library replicates, and nested M prefixes together.",
+    "reporting": "Publish the preregistration, exact derivation, Monte Carlo validation, complete raw condition arrays, held-out comparison table, figure, and concise report. No results are added to the manuscript in this stage."
+  }
+}

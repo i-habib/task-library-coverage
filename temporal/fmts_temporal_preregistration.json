@@ -1,0 +1,65 @@
+{
+  "experiment": "FMTS-temporal-v1",
+  "frozen_date": "2026-09-14",
+  "scientific_question": "Does the exact posterior coverage coordinate R=M/N2 organize finite-library posterior calibration and multi-step forecasting quality for a stable Gaussian AR(1) task family initialized at x[0]=0?",
+  "reporting_amendment": {
+    "date": "2026-09-14",
+    "timing": "post-run scientific review; no contexts were regenerated",
+    "change": "Matched-R bins with fewer than 30 independent contexts for any represented n are retained as sparse diagnostics but excluded from headline heterogeneity summaries.",
+    "reason": "The original largest range came from a two-context bin and was dominated by one outlier; it cannot support a robust falsification claim."
+  },
+  "scope_boundary": "This simulator tests a controlled Bayesian temporal task family only. It is not evidence about temporal foundation models, scaling laws, or neural training mechanisms.",
+  "data_generating_process": {
+    "task_parameter": "a ~ Uniform[-0.95, 0.95]",
+    "dynamics": "x[t+1] = a*x[t] + epsilon[t], epsilon[t] iid N(0,1), x[0]=0",
+    "context": "Observe x[1:n] and condition the likelihood on fixed x[0]=0; use Sxx=sum_{t=0}^{n-1} x[t]^2 and Sxy=sum_{t=0}^{n-1} x[t]*x[t+1].",
+    "n": [16, 64, 256, 1024],
+    "horizons": [1, 4, 16],
+    "library": "For each independent context cluster, draw an independent iid library of task parameters from the same prior and reuse nested prefixes at M in [4,16,64,256,1024]. Library tasks are independent of the target trajectory and of other clusters.",
+    "contexts_per_n": 512,
+    "future_paths_per_context": 8
+  },
+  "posterior": {
+    "continuous": "pi(a|D) proportional to (1/(2*0.95))*exp(a*Sxy - 0.5*a^2*Sxx) on [-0.95,0.95].",
+    "normalization": "Stable composite Gauss-Legendre quadrature with mode-centered breaks; primary order 96 per interval and node/order-doubling audit at order 192.",
+    "N2": "N2=Z2/Z1^2 using the normalized prior measure, evaluated from the same stable quadrature; the exact coordinate is R=M/N2.",
+    "discrete": "Use every library atom in each prefix with normalized likelihood weights exp(a_i*Sxy - 0.5*a_i^2*Sxx). No top-k truncation or posterior-mean dynamics.",
+    "reported_coordinates": "Plot achieved log2(R), retaining all M and never replacing achieved R with requested or nominal R."
+  },
+  "forecast": {
+    "conditional_moments": "Given a and x_n, forecast mean is a^h*x_n and conditional variance is sum_{j=0}^{h-1} a^(2j). Integrate both over the continuous or discrete posterior mixture.",
+    "density": "Predictive negative log score integrates the Normal density at every posterior atom/quadrature node, including its atom-specific multi-step variance.",
+    "paired_risks": "Use the same independent future draws for continuous, finite-library, and oracle predictors within a context and M; future draws are independent of the context and library.",
+    "oracle": "The true-a predictive distribution is included as an irreducible-noise reference.",
+    "normalization": "MSE and continuous-versus-finite mean discrepancy are divided by the paired oracle MSE for the same context and horizon; score differences remain in nats."
+  },
+  "estimands": [
+    "ESS=1/sum_i q_i^2 and maximum discrete posterior weight",
+    "90-percent continuous and discrete posterior interval coverage of true a",
+    "Library support indicator: at least one atom lies in the continuous 90-percent interval",
+    "Continuous-versus-finite forecast mean squared discrepancy",
+    "Paired predictive MSE ratio to oracle and predictive negative log-score difference versus continuous posterior",
+    "Descriptive matched-R heterogeneity across n, with no universality requirement"
+  ],
+  "uncertainty": {
+    "bootstrap_unit": "Independent context cluster, retaining its target trajectory, library prefixes, future draws, and all paired M values/horizons.",
+    "bootstrap_replicates": 1000,
+    "interval": "Percentile 95-percent context-cluster bootstrap intervals; repeated M/h rows are not treated as independent observations."
+  },
+  "audits": {
+    "quadrature": "Node/order doubling for every context; independent scipy.integrate.quad spot checks for representative contexts and synthetic interior/concentrated-boundary cases.",
+    "identities": "Check N2 finite and >=1 within numerical tolerance, h=1 mixture variance identity 1+x_n^2 Var(a), all computed primary values finite, and deterministic checksums. Unaudited scipy spot-check fields use a NaN sentinel and are excluded from finite-value assertions.",
+    "simulation": "Direct posterior-mixture multi-step simulations check analytic predictive means and variances.",
+    "reproducibility": "Deterministic hashed seeds, immutable output identity, atomic per-context snapshots, and resumable reruns."
+  },
+  "interpretation": {
+    "positive": "A decrease in finite-library discrepancy or score gap with achieved R supports R as a useful finite-library coordinate for this simulator.",
+    "negative": "Persistent matched-R differences across n or horizon, or non-monotone finite-library quality, are retained as negative results; do not collapse them by averaging away condition structure.",
+    "non_claims": [
+      "No claim that similar R implies identical forecasting quality",
+      "No claim about temporal foundation models or neural in-context learning",
+      "No claim that the fixed M grid realizes requested R values exactly",
+      "No claim that this one-dimensional AR(1) family spans real-world time-series structure"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "M": 256,
+  "assets_sha256": "47347f87de89df5b197194e4e41d06c3c2d209c3a176ab2f76309534d897ed01",
+  "endpoint": 200000,
+  "model_seed": 8739544470378261712,
+  "preregistration_sha256": "6a75aadf2969b2f7e99f21498ecf623b01d50ffdf7167c8a5b84a41f1e71ef49",
+  "smoke": false,
+  "source_sha256": "b6a8e9b451f909e717a4483e22c624a8d86a49b4d0830dacc125d84700d4870e",
+  "stage": "fmts_learned_temporal_coverage_v1",
+  "torch": "2.11.0+cu128",
+  "training_seed": 9091742478213495006
+}

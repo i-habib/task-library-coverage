@@ -1,0 +1,380 @@
+{
+  "arms": {
+    "256": {
+      "competence_all_prefixes": true,
+      "coverage_certificate_k15": false,
+      "prefixes": [
+        {
+          "G_bits": {
+            "lower": 8.211450507386097,
+            "mean": 8.402899420562484,
+            "upper": 8.592509408335527
+          },
+          "S": {
+            "lower": -0.04736714329864865,
+            "mean": 0.01705946729311036,
+            "upper": 0.07525039480472936
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.01037969850897257,
+            "mean": 0.010691655798052603,
+            "upper": 0.011032285234240545
+          },
+          "distance_to_continuous": {
+            "lower": 0.0016439096192584328,
+            "mean": 0.0017865525417755422,
+            "upper": 0.0019335458346199836
+          },
+          "distance_to_discrete": {
+            "lower": 0.0016004387209294867,
+            "mean": 0.0018485657229186814,
+            "upper": 0.002093552147731069
+          },
+          "prefix": 3,
+          "risk_ratio": {
+            "lower": 1.1466982634235334,
+            "mean": 1.170002503652678,
+            "upper": 1.194843664079565
+          },
+          "transformer_risk": {
+            "lower": 0.012112416326999664,
+            "mean": 0.012509264051914215,
+            "upper": 0.012922619469463825
+          }
+        },
+        {
+          "G_bits": {
+            "lower": 9.308128245173931,
+            "mean": 9.483810087556378,
+            "upper": 9.669213275147747
+          },
+          "S": {
+            "lower": -0.08062221288481808,
+            "mean": -0.019138319237858588,
+            "upper": 0.040902684103795564
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.010381720440489186,
+            "mean": 0.010699145946149407,
+            "upper": 0.011039838407479016
+          },
+          "distance_to_continuous": {
+            "lower": 0.000987740194335247,
+            "mean": 0.0010888564436916924,
+            "upper": 0.0011999824882524877
+          },
+          "distance_to_discrete": {
+            "lower": 0.0009368304707531117,
+            "mean": 0.001047961342741794,
+            "upper": 0.0011585547015856219
+          },
+          "prefix": 7,
+          "risk_ratio": {
+            "lower": 1.0779254736002175,
+            "mean": 1.0954648341404718,
+            "upper": 1.1126961483807059
+          },
+          "transformer_risk": {
+            "lower": 0.011353729292750359,
+            "mean": 0.011720538139343262,
+            "upper": 0.012101364322006702
+          }
+        },
+        {
+          "G_bits": {
+            "lower": 10.084514443483313,
+            "mean": 10.245652823382656,
+            "upper": 10.416432932216024
+          },
+          "S": {
+            "lower": -0.01412949476129187,
+            "mean": 0.05057164470125664,
+            "upper": 0.11286517742600487
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.010057429759848103,
+            "mean": 0.010376600980409018,
+            "upper": 0.010682279803023487
+          },
+          "distance_to_continuous": {
+            "lower": 0.0008333491965506201,
+            "mean": 0.0009140127158283361,
+            "upper": 0.0010020591067768873
+          },
+          "distance_to_discrete": {
+            "lower": 0.0009054230818288479,
+            "mean": 0.0010113831515422703,
+            "upper": 0.0011254314158405773
+          },
+          "prefix": 11,
+          "risk_ratio": {
+            "lower": 1.0699535452627882,
+            "mean": 1.0850950787012916,
+            "upper": 1.101592740926693
+          },
+          "transformer_risk": {
+            "lower": 0.010912730358541012,
+            "mean": 0.011259598657488823,
+            "upper": 0.011616547591984272
+          }
+        },
+        {
+          "G_bits": {
+            "lower": 10.692551338575406,
+            "mean": 10.843401378490249,
+            "upper": 11.002673691510546
+          },
+          "S": {
+            "lower": -0.02284549455552892,
+            "mean": 0.040091128207960874,
+            "upper": 0.0995902466263553
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.009997637192489906,
+            "mean": 0.010321093268491293,
+            "upper": 0.010629406925169792
+          },
+          "distance_to_continuous": {
+            "lower": 0.0007772478917348287,
+            "mean": 0.0008531604084747848,
+            "upper": 0.0009489729730602367
+          },
+          "distance_to_discrete": {
+            "lower": 0.0008351478964206551,
+            "mean": 0.0009244258469413834,
+            "upper": 0.0010194522688852592
+          },
+          "prefix": 15,
+          "risk_ratio": {
+            "lower": 1.0730593851927872,
+            "mean": 1.0888759831411225,
+            "upper": 1.1054454215879745
+          },
+          "transformer_risk": {
+            "lower": 0.010887901298701763,
+            "mean": 0.01123839057981968,
+            "upper": 0.011585635133087635
+          }
+        }
+      ],
+      "summary": {
+        "M": 256,
+        "endpoint_predictions_sha256": "100e769df27b6519d4bce4e87e0d3298ddbb4196f133510570333dfd97f773c4",
+        "final_model_sha256": "9e8b83a98718cc4b34efc98ab1d67ac7384431b9f4edcee22be855635a5a960f",
+        "identity": {
+          "M": 256,
+          "assets_sha256": "47347f87de89df5b197194e4e41d06c3c2d209c3a176ab2f76309534d897ed01",
+          "endpoint": 200000,
+          "model_seed": 8739544470378261712,
+          "preregistration_sha256": "6a75aadf2969b2f7e99f21498ecf623b01d50ffdf7167c8a5b84a41f1e71ef49",
+          "smoke": false,
+          "source_sha256": "b6a8e9b451f909e717a4483e22c624a8d86a49b4d0830dacc125d84700d4870e",
+          "stage": "fmts_learned_temporal_coverage_v1",
+          "torch": "2.11.0+cu128",
+          "training_seed": 9091742478213495006
+        },
+        "latest_metrics": {
+          "latest_train_loss": 0.026257459074258804,
+          "learning_rate": 0.0,
+          "step": 200000
+        },
+        "parameter_count": 1590528,
+        "phase": "complete",
+        "step": 200000
+      }
+    },
+    "4096": {
+      "competence_all_prefixes": true,
+      "coverage_certificate_k15": true,
+      "prefixes": [
+        {
+          "G_bits": {
+            "lower": 4.211450507386099,
+            "mean": 4.402899420562486,
+            "upper": 4.592509408335527
+          },
+          "S": {
+            "lower": 0.972194292348286,
+            "mean": 0.9751569007923788,
+            "upper": 0.9777858877509169
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.01037969850897257,
+            "mean": 0.010691655798052603,
+            "upper": 0.011032285234240545
+          },
+          "distance_to_continuous": {
+            "lower": 1.4857330550053265e-05,
+            "mean": 1.657543471023723e-05,
+            "upper": 1.8655609676613458e-05
+          },
+          "distance_to_discrete": {
+            "lower": 0.0011943895769910766,
+            "mean": 0.0013178341388869514,
+            "upper": 0.0014432749581197413
+          },
+          "prefix": 3,
+          "risk_ratio": {
+            "lower": 1.0015274158307548,
+            "mean": 1.0032503265069048,
+            "upper": 1.0050889070197007
+          },
+          "transformer_risk": {
+            "lower": 0.010413877665996552,
+            "mean": 0.010726407170295715,
+            "upper": 0.011064307764172554
+          }
+        },
+        {
+          "G_bits": {
+            "lower": 5.308128245173932,
+            "mean": 5.483810087556378,
+            "upper": 5.669213275147747
+          },
+          "S": {
+            "lower": 0.9700850729642126,
+            "mean": 0.973611777687434,
+            "upper": 0.9764657847943452
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.010381720440489186,
+            "mean": 0.010699145946149407,
+            "upper": 0.011039838407479016
+          },
+          "distance_to_continuous": {
+            "lower": 1.015582803748218e-05,
+            "mean": 1.1350352201923482e-05,
+            "upper": 1.2765406528839055e-05
+          },
+          "distance_to_discrete": {
+            "lower": 0.0007744875547968026,
+            "mean": 0.0008489085972248052,
+            "upper": 0.0009316256459864638
+          },
+          "prefix": 7,
+          "risk_ratio": {
+            "lower": 0.9990194155676058,
+            "mean": 1.0006326114484778,
+            "upper": 1.0022266179433106
+          },
+          "transformer_risk": {
+            "lower": 0.010391784831881523,
+            "mean": 0.010705914348363876,
+            "upper": 0.01105261966586113
+          }
+        },
+        {
+          "G_bits": {
+            "lower": 6.084514443483312,
+            "mean": 6.245652823382656,
+            "upper": 6.416432932216024
+          },
+          "S": {
+            "lower": 0.9691668933095884,
+            "mean": 0.9724232231704064,
+            "upper": 0.9755413444289234
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.010057429759848103,
+            "mean": 0.010376600980409018,
+            "upper": 0.010682279803023487
+          },
+          "distance_to_continuous": {
+            "lower": 9.292875400197689e-06,
+            "mean": 1.0271808569291902e-05,
+            "upper": 1.139277265953627e-05
+          },
+          "distance_to_discrete": {
+            "lower": 0.0006662602359767428,
+            "mean": 0.0007346889700427218,
+            "upper": 0.0008138314788694327
+          },
+          "prefix": 11,
+          "risk_ratio": {
+            "lower": 0.9986191725563889,
+            "mean": 1.000084684448026,
+            "upper": 1.0014446439695404
+          },
+          "transformer_risk": {
+            "lower": 0.010056205093860626,
+            "mean": 0.01037747971713543,
+            "upper": 0.0106819998472929
+          }
+        },
+        {
+          "G_bits": {
+            "lower": 6.692551338575405,
+            "mean": 6.843401378490249,
+            "upper": 7.002673691510546
+          },
+          "S": {
+            "lower": 0.9699518961727077,
+            "mean": 0.9730652731317386,
+            "upper": 0.9758336331837949
+          },
+          "continuous_bayes_risk": {
+            "lower": 0.009997637192489906,
+            "mean": 0.010321093268491293,
+            "upper": 0.010629406925169792
+          },
+          "distance_to_continuous": {
+            "lower": 9.40137078960377e-06,
+            "mean": 1.0091026603593852e-05,
+            "upper": 1.080640450265729e-05
+          },
+          "distance_to_discrete": {
+            "lower": 0.0006670513265920085,
+            "mean": 0.000739203863442952,
+            "upper": 0.0008152810660761859
+          },
+          "prefix": 15,
+          "risk_ratio": {
+            "lower": 0.999387289977631,
+            "mean": 1.0007394286307163,
+            "upper": 1.0021184142770034
+          },
+          "transformer_risk": {
+            "lower": 0.01000399049371481,
+            "mean": 0.010328724980354309,
+            "upper": 0.010641689412295818
+          }
+        }
+      ],
+      "summary": {
+        "M": 4096,
+        "endpoint_predictions_sha256": "9137d0fabf7a4059247067053b83e73403b325a7a8eb026ed34cd3c09f9b3f3c",
+        "final_model_sha256": "599fd95a37eb47ba64eed487fa33629cd1ddbb1372ad48519f95d183c9a6823f",
+        "identity": {
+          "M": 4096,
+          "assets_sha256": "47347f87de89df5b197194e4e41d06c3c2d209c3a176ab2f76309534d897ed01",
+          "endpoint": 200000,
+          "model_seed": 7468162692569531806,
+          "preregistration_sha256": "6a75aadf2969b2f7e99f21498ecf623b01d50ffdf7167c8a5b84a41f1e71ef49",
+          "smoke": false,
+          "source_sha256": "b6a8e9b451f909e717a4483e22c624a8d86a49b4d0830dacc125d84700d4870e",
+          "stage": "fmts_learned_temporal_coverage_v1",
+          "torch": "2.11.0+cu128",
+          "training_seed": 7339838073581337657
+        },
+        "latest_metrics": {
+          "latest_train_loss": 0.02559097483754158,
+          "learning_rate": 0.0,
+          "step": 200000
+        },
+        "parameter_count": 1590528,
+        "phase": "complete",
+        "step": 200000
+      }
+    }
+  },
+  "assets_sha256": "47347f87de89df5b197194e4e41d06c3c2d209c3a176ab2f76309534d897ed01",
+  "frozen_outcome": "temporal_generalization_beyond_retrieval",
+  "preregistration_sha256": "6a75aadf2969b2f7e99f21498ecf623b01d50ffdf7167c8a5b84a41f1e71ef49",
+  "quadrature": {
+    "log2_N2_max_abs_96_vs_128": 0.0003130450592330192,
+    "prediction_max_abs_96_vs_128": 7.639370178114113e-10
+  },
+  "source_sha256": "b6a8e9b451f909e717a4483e22c624a8d86a49b4d0830dacc125d84700d4870e",
+  "stage": "fmts_learned_temporal_coverage_v1",
+  "transition_evidence": false
+}

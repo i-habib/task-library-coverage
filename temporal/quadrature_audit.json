@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "log_n2_doubled": 0.018457035795340138,
+      "log_n2_primary": 0.018457035795339694,
+      "log_n2_quad": 0.01845703579533947,
+      "name": "low_information_interior",
+      "order_abs_error": 4.440892098500626e-16,
+      "quad_abs_error": 6.661338147750939e-16,
+      "sxx": 1.0,
+      "sxy": 0.1
+    },
+    {
+      "log_n2_doubled": 2.8420776654874746,
+      "log_n2_primary": 2.8420776654874764,
+      "log_n2_quad": 2.8420776654874764,
+      "name": "concentrated_interior",
+      "order_abs_error": 1.7763568394002505e-15,
+      "quad_abs_error": 1.7763568394002505e-15,
+      "sxx": 1024.0,
+      "sxy": 102.4
+    },
+    {
+      "log_n2_doubled": 3.535224846047413,
+      "log_n2_primary": 3.535224846047413,
+      "log_n2_quad": 3.535224846047413,
+      "name": "concentrated_positive_boundary",
+      "order_abs_error": 0.0,
+      "quad_abs_error": 0.0,
+      "sxx": 1024.0,
+      "sxy": 972.8
+    },
+    {
+      "log_n2_doubled": 3.535224846047413,
+      "log_n2_primary": 3.535224846047413,
+      "log_n2_quad": 3.535224846047413,
+      "name": "concentrated_negative_boundary",
+      "order_abs_error": 0.0,
+      "quad_abs_error": 0.0,
+      "sxx": 1024.0,
+      "sxy": -972.8
+    }
+  ],
+  "maximum_abs_error": 1.7763568394002505e-15,
+  "tolerance": 2e-10
+}

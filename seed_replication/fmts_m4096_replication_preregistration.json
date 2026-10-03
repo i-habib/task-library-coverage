@@ -1,0 +1,57 @@
+{
+  "created_before_new_training_outcomes": true,
+  "date": "2026-09-14",
+  "stage": "fmts_M4096_seed_replication_v1",
+  "purpose": "Establish a seed-supported sufficient-diversity point after M2048 passed only 2/3 model-library seeds at the matched checkpoint horizon.",
+  "triggering_evidence": {
+    "M1024_all_prefix_pass_fraction": "0/3",
+    "M2048_all_prefix_pass_fraction": "2/3",
+    "M2048_replicate_2_only_failure": "k=15 noisy-risk ratio 1.201642 versus the frozen strict <1.2 gate",
+    "existing_M4096_reference": "replicate 0, step 290000, maximum all-prefix noisy-risk ratio 1.0526"
+  },
+  "design": {
+    "replicate_ids": [1, 2],
+    "M": 4096,
+    "new_training_arms": 2,
+    "endpoint_step": 290000,
+    "pairing": "For each replicate, reuse the exact model and training seed derivation from the completed M1024/M2048 pair. Copy the retained M2048 tensor library verbatim as the first 2048 rows, then append 2048 Gaussian tensors from a new replicate-keyed extension stream.",
+    "architecture": "PublishedRegressor: q=8, 16 points, 8 layers, width 128, 2 heads, MLP hidden 512",
+    "training_distribution": "Uniform sampling from the finite Gaussian library; iid N(0,I8) covariates; iid N(0,0.25) label noise; loss over all 16 x-token predictions.",
+    "optimizer": "Adam, batch 256, peak learning rate 0.001, linear warmup to step 250000 and linear decay against a nominal 500000-step horizon"
+  },
+  "frozen_evaluation": {
+    "prompt_sha256": "7ef81ac84987162fe92c756c7b5635422c59a410ab7a9408bb90b30873267657",
+    "prompts": 4096,
+    "prefixes_k": [3, 7, 11, 15],
+    "primary_endpoint": 290000,
+    "primary_metric": "Transformer/ridge noisy-target risk ratio at every prefix",
+    "per_model_gate": "PASS iff the point estimate is <1.2 at all four prefixes",
+    "trajectory_steps": "0, 1000, 5000, 10000, every 25000, and 290000",
+    "trajectory_role": "Secondary fixed-time description only; no best-checkpoint selection may replace the primary endpoint.",
+    "same_prompt_bank": "Reuse the accepted 4096-prompt bank without regeneration, subsetting, or reordering."
+  },
+  "frozen_outcomes": {
+    "seed_supported_M4096_sufficient_point": "Both new M4096 models pass. Report M4096 as a 3/3 observed sufficient-diversity point, M1024 as 0/3, and M2048 as a mixed 2/3 transition condition. Do not convert 3/3 into a population-confidence claim.",
+    "M4096_not_seed_robust": "At least one new M4096 model fails. Do not claim a seed-supported M4096 sufficient point; retain the per-seed trajectories and move the upper-dose check to M8192 only if further compute is justified.",
+    "nonmonotone_or_transient": "If a model passes earlier fixed checkpoints but fails at step 290000, report transient competence or later specialization without selecting the earlier checkpoint as the endpoint result."
+  },
+  "integrity": {
+    "resumable_checkpoint_interval": 5000,
+    "prediction_checkpoint_interval": 25000,
+    "checkpoint_contents": "model, Adam state, training generator, CPU RNG, CUDA RNG, identity and step",
+    "causal_query_label_max_abs": 1e-7,
+    "all_predictions_and_losses_finite": true,
+    "exact_nested_library_check": true,
+    "hash_every_uploaded_and_downloaded_file": true
+  },
+  "pre_execution_technical_amendment": {
+    "trigger": "A local smoke test showed that regenerating the historical library from the old seed is not bit-stable across PyTorch builds.",
+    "correction": "Construct M4096 by concatenating the retained M2048 tensor bytes with a separately seeded 2048-row Gaussian extension, and verify the prefix with torch.equal.",
+    "scope": "Made before any new training outcome. Architecture, endpoint, optimizer, prompt bank, gate and frozen interpretations are unchanged."
+  },
+  "limits": [
+    "Three observed seeds at M4096 are a focused robustness check, not a precise population estimate.",
+    "This stage can repair the empirical upper bound, not erase or relabel the preregistered M2048 failure.",
+    "Checkpoint trajectories test optimization-time sensitivity but do not establish a new mechanism."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "acceptance_threshold_z": 8.0,
+  "draws": 60000,
+  "maximum_z": 1.0770151497649438,
+  "rows": [
+    {
+      "analytic_mean": 0.6475462752324372,
+      "analytic_variance": 1.0001738831167382,
+      "empirical_mean": 0.6506341975383172,
+      "empirical_variance": 0.9973388958252686,
+      "horizon": 1,
+      "mean_z": 0.7563176488996066,
+      "variance_z": 0.4909447437928028
+    },
+    {
+      "analytic_mean": 0.5138709494184488,
+      "analytic_variance": 3.2223163014483815,
+      "empirical_mean": 0.5094646391423092,
+      "empirical_variance": 3.21510714033206,
+      "horizon": 4,
+      "mean_z": 0.6012659584363532,
+      "variance_z": 0.3875016636974835
+    },
+    {
+      "analytic_mean": 0.21059555442916292,
+      "analytic_variance": 6.526376851989302,
+      "empirical_mean": 0.22182820531074698,
+      "empirical_variance": 6.552551413910179,
+      "horizon": 16,
+      "mean_z": 1.0770151497649438,
+      "variance_z": 0.6946471885111057
+    }
+  ]
+}

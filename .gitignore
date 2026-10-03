@@ -1,0 +1,8 @@
+__pycache__/
+.DS_Store
+# model states and predictions are distributed as a release asset (see README)
+*.pt
+*.npz
+model-states.zip
+*/replay-output/
+*/replay-audit/
