@@ -8,8 +8,8 @@
     "sha256": "5ad390bc27f968f86431ddc8245825fb2dfa4dec227b311cf4fb9d626508b463"
   },
   "README.md": {
-    "bytes": 5450,
-    "sha256": "ccdf7e6d1a37f17ae639ee44b68f1d7b341683ffa20e082b65ea02597e691e7e"
+    "bytes": 5504,
+    "sha256": "0cba5f8d80078ecf87885cc34cf387384baa5b770f240356234e393e5d0cabce"
   },
   "architecture_comparison/audit_fmts_architecture_baseline.py": {
     "bytes": 12787,
@@ -210,6 +210,10 @@
   "negative_controls/path_jacobian_summary.json": {
     "bytes": 72474,
     "sha256": "0eabcae34e83750c5c443b8f97ff2dedb6bcb24cadd917beffb70f733ad0c01f"
+  },
+  "paper.pdf": {
+    "bytes": 348656,
+    "sha256": "a2919e741a2fcb92f92d43eef65c82635c0f8b396385813258e8451669a92a26"
   },
   "requirements.txt": {
     "bytes": 52,

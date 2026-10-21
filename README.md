@@ -2,6 +2,8 @@
 
 Code, preregistrations, and results for the paper of the same name (NeurIPS 2026 FMTS workshop).
 
+**Paper (camera-ready PDF):** [paper.pdf](paper.pdf)
+
 When a sequence model forecasts a system it has never seen, it might be estimating that system's dynamics from the context, or it might be retrieving a similar system it saw during training. Accuracy alone usually can't tell these apart. This project makes the question testable for a specific prompt by comparing the size of the model's training library, M, with the number of prior draws the posterior for that prompt would need, N2 = exp D2(posterior ‖ prior). The ratio R = M/N2 is the library's coverage. If R is far below 1, Bayesian lookup over the library cannot match continuous Bayes, so a model that does match it must be doing something other than lookup.
 
 Main results:
